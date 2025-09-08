@@ -1,0 +1,54 @@
+
+@media (max-width: 768px) {
+    .side-menu.active {
+        right: 0;
+    }
+     .nav-links {
+         display: none;
+     }
+
+     .menu-icon {
+         display: flex;
+     }
+
+     #heading {
+         display: none !important;
+     }
+
+h1 {
+    font-size: 3rem;
+    margin-top: 1rem !important;
+}
+
+.green {
+    height: 50vh;
+}
+}
+
+
+ 
+@media (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    input, select, button {
+        padding: 8px;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .side-menu ul li a {
+        font-size: 18px;
+    }
+
+    /* Side Menu */
+
+    /* Active Side Menu */
+    .side-menu.active {
+        right: 0;
+    }
+
+}

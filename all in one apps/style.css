@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(158, 19, 223);
+    height: 100%;
+    width: 100%;
+    background: url("pexels-pixabay-207665.webp") no-repeat center/cover;
+}
+
+h1 {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+}
+
+#card {
+    height: 450px;
+    width: 290px;
+    background: rgba(255, 255, 255, 0.64);
+    border: 2px solid rgba(255, 255, 255, 0.548);
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#box {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+#btns-container {
+    display: grid;
+    margin: 10px;
+}
+
+.go {
+    height: 12vh;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 6px;
+    border: none;
+    background: #ffffff80;
+    border-radius: 20px;
+    font-style: italic;
+    font-size: 25px;
+}
+
+.go a{
+    text-decoration: none;
+    color: black;
+}
+.go:hover{
+    background: #878787;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px){
+    .go{
+    height: 11vh;
+    }
+}

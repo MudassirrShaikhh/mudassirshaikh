@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculator</title>
+
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(cal\ 2.png) no-repeat center/cover;
+    height: 100%;
+    width: 100%;
+}
+
+#card {
+    height: 400px;
+    width: 200px;
+    background: rgb(255, 255, 255);
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+
+}
+
+#box {
+    text-align: center;
+
+}
+
+.inputt {
+    padding-top: 10px;
+    margin-top: 5px;
+    border: none;
+    border-bottom: black 2px solid;
+    text-align: center;
+}
+
+.inputt:focus {
+    outline: none;
+    background: rgba(255, 123, 0, 0.197);
+}
+
+#btn {
+    margin-top: 10px;
+    height: 40px;
+    width: 100px;
+    background: #febd11;
+    border: none;
+    border-radius: 20px;
+}
+
+#btn:hover {
+    background: rgb(249, 148, 54);
+    cursor: pointer;
+}
+
+#total {
+    margin-top: 25px;
+    margin-left: 10px;
+    font-style: italic;
+}
+</style>
+<body>
+    <div id="card">
+        <div id="box">
+            <h1>Financial Calculator</h1>
+            <input class="inputt" id="in1" type="number" placeholder="Enter Total Amount" required>
+
+            <input class="inputt" id="in2" type="number" placeholder="Vehicle Fuel Cost">
+
+            <input class="inputt" id="in3" type="number" placeholder="Grocery Shopping">
+
+            <input class="inputt" id="in4" type="number" placeholder="Personal Expense">
+            <input class="inputt" id="in5" type="number" placeholder="Optional Others">
+
+            <input class="inputt" id="in6" type="number" placeholder="Optional Others">
+            <button id="btn" onclick="calculateTotal()">Let's <br> Calculate</button>
+        </div>
+        <div id="total">Current Balance :</div>
+    </div>
+    <script>
+        
+function calculateTotal() {
+    var in1 = parseFloat(document.getElementById("in1").value) || 0;
+    var in2 = parseFloat(document.getElementById("in2").value) || 0;
+    var in3 = parseFloat(document.getElementById("in3").value) || 0;
+    var in4 = parseFloat(document.getElementById("in4").value) || 0;
+    var in5 = parseFloat(document.getElementById("in5").value) || 0;
+    var in6 = parseFloat(document.getElementById("in6").value) || 0;
+
+    let total = in1 - (in2 + in3 + in4 + in5 + in6);
+
+    document.getElementById('total').innerText = `Current Balance : ${total}`;
+}
+s
+    </script>
+</body>
+
+</html>

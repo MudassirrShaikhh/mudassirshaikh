@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            background: url("tic.png") no-repeat center/cover;
+        }
+
+        main {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            margin-top: 10vh;
+        }
+
+        #game {
+            display: grid;
+            grid-template-columns: repeat(3, 10vw);
+            grid-template-rows: repeat(3, 10vw);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: 66vh;
+            background: #ffffffc7;
+        }
+
+        /*#side-info {}
+*/
+        .tic {
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15vh;
+        }
+
+        .tic:hover {
+            background-color: rgba(255, 95, 95, 0.16);
+        }
+
+        .bt {
+            border-top: none;
+        }
+
+        .br {
+            border-right: none;
+        }
+
+        .bb {
+            border-bottom: none;
+        }
+
+        .bl {
+            border-left: none;
+        }
+
+        .turn {
+            font-size: 13vw;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            -webkit-text-stroke: 3px rgb(255, 255, 255);
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 768px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 0;
+            }
+
+            #game {
+                grid-template-columns: repeat(3, 30vw);
+                grid-template-rows: repeat(3, 30vw);
+            }
+
+            #side-info {
+                width: 100vw;
+                text-align: center;
+                background: #ffffffc7;
+                margin-bottom: 10vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="side-info">
+            <div class="turn">Turn : </div>
+            <img src="" alt="">
+        </div>
+        <div id="game">
+            <div class="tic bt bl"><span class="tac"></span></div>
+            <div class="tic bt"><span class="tac"></span></div>
+            <div class="tic bt br"><span class="tac"></span></div>
+            <div class="tic bl"><span class="tac"></span></div>
+            <div class="tic "><span class="tac"></span></div>
+            <div class="tic br"><span class="tac"></span></div>
+            <div class="tic bl bb"><span class="tac"></span></div>
+            <div class="tic bb"><span class="tac"></span></div>
+            <div class="tic bb br"><span class="tac"></span></div>
+        </div>
+    </main>
+    <script>
+        let audioClick = new Audio('sounds/player click tic toe.wav');
+        let audioWin = new Audio('sounds/wining for bubble.wav');
+        let turn = "X";
+        let isGameOver = false;
+
+        // Function to change the turn
+        const changeTurn = () => {
+            return turn === "X" ? "O" : "X";
+        }
+
+        // Function to check for a win
+        const checkWin = () => {
+            let boxtexts = document.getElementsByClassName('tac');
+            let wins = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]             // Diagonals
+            ];
+
+            wins.forEach(e => {
+                if ((boxtexts[e[0]].innerText === boxtexts[e[1]].innerText) &&
+                    (boxtexts[e[2]].innerText === boxtexts[e[1]].innerText) &&
+                    (boxtexts[e[0]].innerText !== "")) {
+                    document.querySelector('.turn').innerText = boxtexts[e[0]].innerText + " Wins!";
+                    isGameOver = true;
+                    audioWin.play();
+                }
+            });
+        }
+
+        // Game logic
+        let boxes = document.getElementsByClassName("tic");
+        Array.from(boxes).forEach(element => {
+            let boxtext = element.querySelector('.tac');
+            element.addEventListener("click", () => {
+                audioClick.play();
+                if (boxtext.innerText === '' && !isGameOver) {
+                    boxtext.innerText = turn;
+                    turn = changeTurn();
+                    checkWin();
+                    if (!isGameOver) {
+                        document.querySelector('.turn').innerText = "Turn for " + turn;
+                    }
+                }
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

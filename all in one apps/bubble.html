@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Game</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    #main {
+
+        height: 100%;
+        width: 100%;
+        background: url("bub\ 2.jpg") no-repeat center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #panel {
+        height: 90%;
+        width: 80%;
+        background: url("bub\ 2.jpg") no-repeat center/cover;
+        overflow: hidden;
+        border-radius: 10px;
+
+    }
+
+    #ptop {
+        width: 100%;
+        height: 80px;
+        background-color: #00e8fe;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .small-container {
+        display: grid;
+        justify-content: space-between;
+        inline-size: 250px;
+        margin-left: 120px;
+        font-family: 'Arial', Arial, sans-serif;
+        color: #00e8fe;
+        font-weight: 1000;
+    }
+
+    .score {
+        background: white;
+        text-align: center;
+        width: 56px;
+
+    }
+
+    .head {
+        text-align: center;
+        color: white;
+    }
+
+    .bb {
+        padding: 30px;
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bubble {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background-color: #00e8fe;
+        border-radius: 50%;
+        margin: 12px;
+        cursor: pointer;
+
+    }
+
+    .bubble:hover {
+        background-color: #02b7cf;
+
+    }
+
+    .last {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 35px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        animation: last 1s ease-in;
+    }
+
+    .reload {
+        height: 10vh;
+        width: 20vw;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        background: none;
+    }
+
+    .reload:hover {
+        background: #00e8fe;
+        cursor: pointer;
+    }
+
+    @media (max-width:768px) {
+
+        .small-container {
+            inline-size: 75px;
+            margin-left: 10px;
+        }
+    }
+
+    @keyframes last {
+
+        0% {
+            scale: 0.3;
+        }
+
+        100% {
+            scale: 1;
+        }
+
+    }
+</style>
+
+<body>
+    <div id="main">
+        <div id="panel">
+            <div id="ptop">
+                <div class="small-container">
+                    <div class="head">Score</div>
+                    <div id="scoreval" class="score">0</div>
+                </div>
+
+                <div class="small-container">
+                    <div class="head">Timer</div>
+                    <div class="score" id="timerval">60</div>
+                </div>
+
+                <div class="small-container">
+                    <div class="head">Hit</div>
+                    <div class="score" id="hitval">5</div>
+                </div>
+
+            </div>
+            <div class="bb">
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        let time = 60;
+        let no = 0;
+        let score = 0;
+        let audio = new Audio("sounds/click.wav")
+        let audio1 = new Audio("sounds/wining for bubble.wav")
+
+        function bnc() {
+            let save = "";
+            for (let i = 1; i <= 60; i++) {
+
+                let N = Math.floor(Math.random() * 10)
+
+                save += `<div class="bubble" Onclick="audio.play()">${N}</div>`
+            }
+            document.querySelector(".bb").innerHTML = save;
+
+        }
+
+
+        function hitscore() {
+            no = Math.floor(Math.random() * 10);
+            document.querySelector('#hitval').textContent = no;
+        }
+
+
+
+
+        function timervl() {
+            var tm = setInterval(() => {
+
+                if (time > 0) {
+                    time--;
+                    document.querySelector('#timerval').textContent = time;
+
+                }
+                else {
+                    clearInterval(tm);
+                    audio1.play();
+                    document.querySelector('.bb').innerHTML = `<h1 class="last" >Game is Over</h1><br><h1 class="last">Your Scrore ${score}</h1> <button class="reload" Onclick="location.reload()" >Let's Play Again </button>`
+
+
+                };
+
+            }, 1000);
+        }
+
+        function increasescore() {
+            score += 10;
+            document.querySelector('#scoreval').textContent = score;
+        }
+
+
+
+
+        document.querySelector('.bb').addEventListener('click', function (dets) {
+
+            var num = Number(dets.target.textContent);
+
+            if (num === no) {
+                increasescore();
+                hitscore();
+                bnc();
+            }
+            else {
+                hitscore();
+                bnc();
+            }
+
+        });
+
+
+        bnc();
+        hitscore();
+        timervl();
+
+    </script>
+</body>
+
+</html>

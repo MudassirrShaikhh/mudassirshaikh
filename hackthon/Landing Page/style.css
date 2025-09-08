@@ -1,0 +1,574 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: auto;
+    /* Auto adjusts based on content */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+
+#line {
+
+    /* width: 0vw; */
+    background: rgba(0, 0, 0, 0.44);
+    height: 3px;
+    animation: loading_line 3s ease;
+
+}
+
+/* ===================================================================== */
+
+/* Navigation Bar Styles */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6vw;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+
+}
+
+.navigation .nav-links li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Line height */
+    background-color: #ffffff; /* Line color */
+    bottom: -5px; /* Adjust if needed to position the line */
+    left: 0;
+    transform: scaleX(0);
+    transform-origin:left ;
+    transition: width 0.3s ease-in-out;
+}
+
+.navigation .nav-links li:hover::after {
+    transform: scaleX(1);
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu-icon div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.ff {
+
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.side-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* ======================================================================== */
+
+.line {
+    width: 100%;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    color: white;
+    width: 92%;
+}
+
+
+.green {
+    height: 150vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: url("image/green-board.jpg") no-repeat center/cover;
+
+    color: white !important;
+    -webkit-text-stroke: 1px #000000;
+}
+
+
+.container {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#main {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+/* aik nay div jo subject ky liye hain or animation k lye hain  */
+.container-1 {
+    height: 45%;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+    align-items: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    padding-top: 7rem;
+
+}
+
+.name {
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    animation: new 1s ease-in 1;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 20px 7px;
+    color: white !important;
+    -webkit-text-stroke: 1px #000000;
+}
+
+
+.subject {
+    width: 100%;
+    height: 15%;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 3vh;
+    animation: new 1s ease-in 1;
+}
+
+
+.container-2 {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 50%;
+    gap: 38%;
+    height: 14vh;
+    margin-top: 10vh;
+}
+
+.first-slide {
+    display: flex;
+    gap: 10%;
+    animation: mov 8s ease-in-out infinite 2s forwards alternate;
+}
+
+.second-slide {
+    display: flex;
+    gap: 10%;
+    animation: mov 8s ease-in-out 2s infinite forwards alternate;
+
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+#about-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px 16px;
+}
+
+#about-container .about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#about-container .about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#about-container .about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+
+#about-container .about-section .text-container {
+    width: 100%;
+    color: #000;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+.container-3 {
+    height: 55%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
+    padding: 0 3vw;
+    background: #ddd;
+}
+
+.student {
+    height: 75%;
+    width: 100%;
+
+}
+
+.img:hover {
+    box-shadow: 0 10px 10px rgb(31, 30, 30);
+    transform: translateY(-10px);
+}
+
+.ss {
+    animation: smooth-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title h3 {
+    font-size: 5rem;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.full-container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+
+
+
+
+.full-container {
+    position: relative;
+    width: 100%;
+    height: auto !important;
+    overflow: hidden;
+    z-index: 1;
+    /* Yeh ensure karega ke container front main ho */
+}
+
+video {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* Video ko background main le jata hai */
+    height: 60vh;
+}
+
+.heading-1 {
+    height: 20%;
+    color: rgba(255, 255, 255, 0);
+    font-size: 4rem;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    -webkit-text-stroke: 5px #ffffff;
+}
+
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1vh;
+}
+
+.box {
+    flex: 1;
+    max-width: 30%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+.box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.box h3 {
+    font-size: 20px;
+    color: #002366;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.button-link {
+    font-size: 16px;
+    color: #002366;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-link:hover {
+    text-decoration: underline;
+}
+
+.text-container-2 {
+    width: 100%;
+    color: #000;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#h-2 {
+
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+.container-4 {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.scroll-container {
+    display: flex;
+    /* Space between images */
+    padding: 0 10px;
+    gap: 10vw;
+    height: auto;
+}
+
+.image {
+    width: 20%;
+    flex-shrink: 0;
+}
+
+.image img {
+    width: 100%;
+    height:fit-content;
+    display: block;
+}
+
+
+/* Ensure content or footer appears after the scrolling ends */
+.content {
+    height: 200vh;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+
+.heading-n{
+    font-family: Arial, Helvetica, sans-serif;
+    
+        font-size: 36px;
+        margin-bottom: 20px;
+}
+
+.news-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.news-box {
+    flex: 1 1 calc(33.333% - 20px);
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-box img {
+    width: 100%;
+    height: auto;
+}
+
+.news-box h3 {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.news-box p {
+    font-size: 14px;
+    margin: 10px;
+}
+
+.news-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Styles */
+
+
+
+
+.footer {
+    background-color: #ccc;
+    color: #000000;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer .container-footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+ 
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-nav {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: #000000;
+    text-decoration: none;
+    margin: 5px 10px;
+    font-size: 14px;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}

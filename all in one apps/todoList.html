@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: blueviolet;
+        }
+
+        #main {
+            background: #ffffff;
+            height: 90vh;
+            width: 85vw;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 2.5rem;
+        }
+
+        .list {
+            width: 100%;
+            height: 45vh;
+            display: inline-grid;
+            justify-content: center;
+            overflow-y: scroll;
+        }
+
+        li {
+            list-style: numeric;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .work {
+            position: absolute;
+            bottom: 40px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
+            gap: 1rem;
+        }
+
+        input {
+            height: 25px;
+            width: 70%;
+            background: white;
+            border: double;
+            border-radius: 15px;
+            border-color: #aaa;
+        }
+
+        button {
+            border-radius: 50px;
+            border-color: black;
+            background: lightgray;
+            height: 30px;
+            width: 55px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: rgb(111, 0, 255);
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+            .work {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1>Todo List App</h1>
+        <div class="list"></div>
+        <div class="work">
+            <input id="taskinput" type="text" placeholder="What's the task?">
+            <div class="search" id="search"><button id="add">add+</button></div>
+        </div>
+    </div>
+
+    <script>
+        let add = document.getElementById("add");
+
+        add.addEventListener("click", () => {
+            let titels = document.getElementById('taskinput').value;
+
+            if (titels.trim() !== "") {
+                let itemJsonArray = [];
+
+                if (localStorage.getItem('itemsJson') === null) {
+                    itemJsonArray.push(titels);
+                } else {
+                    itemJsonArray = JSON.parse(localStorage.getItem('itemsJson'));
+
+                    // Check for duplicates
+                    if (!itemJsonArray.includes(titels)) {
+                        itemJsonArray.push(titels);
+                    } else {
+                        alert("This task already exists!");
+                        return;
+                    }
+                }
+
+                localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+                document.getElementById('taskinput').value = ""; // Clear input field
+                renderTasks();
+            } else {
+                console.log("Empty task cannot be added");
+            }
+        });
+
+        function renderTasks() {
+            let itemJsonArray = JSON.parse(localStorage.getItem('itemsJson') || "[]");
+            let taskList = document.querySelector(".list");
+            taskList.innerHTML = "";
+            itemJsonArray.forEach((task, index) => {
+                taskList.innerHTML += `<li id="task${index}">${task} <button onclick="deleteTask(${index})">Delete</button></li>`;
+            });
+        }
+
+        function deleteTask(index) {
+            let itemJsonArray = JSON.parse(localStorage.getItem('itemsJson'));
+            itemJsonArray.splice(index, 1);
+            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+            renderTasks();
+        }
+
+        window.onload = function () {
+            renderTasks();
+        }
+
+
+
+
+
+        add.addEventListener('click', () => {
+            let titels = document.querySelector('#taskinput')
+
+            if (titels.trim() !== "") {
+                itemsJsonArray = [];
+
+                if (localStorage.getitem('itemsJson') === null) {
+                    itemsJsonArray.push('titels');
+                }
+                else {
+                    itemsJsonArray = Json.parse(localStorage.getItem('itemsJson'));
+                    // Check for duplicates
+                    if (!itemJsonArray.includes(titels)) {
+                        itemJsonArray.push(titels);
+                    }
+                    else {
+                        alert("This task already exists!");
+                        return;
+
+
+
+                        localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+                        document.getElementById('taskinput').value = "";
+                        // Clear input field
+                        renderTasks();
+                    //  else {
+                    //         console.log("Empty task cannot be added");
+                    //     }
+                    }
+                }
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
