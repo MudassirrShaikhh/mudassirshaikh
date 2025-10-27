@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(143, 173, 255, 0.481);
+
+}
+
+nav {
+    background: #ffffff45;
+    height: 32px;
+
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    /* Adjust as needed */
+    height: 1180px;
+    /* Adjust as needed */
+}
+
+#name {
+    display: flex;
+    justify-content: center;
+}
+
+.overlay {
+    position: relative;
+    top: 44px;
+    font-size: 3.9rem;
+    color: #000;
+    -webkit-text-fill-color: #ffffff;
+    -webkit-text-stroke-width: 2px;
+    font-weight: bold;
+    font-family: arial,;
+    /* width: 37rem; */
+}
+
+
+.banner {
+    height: 50vh;
+    width: 100%;
+    /* background: url(imgs/pixelcut-export.jpeg) no-repeat center/cover; */
+   background: gray;
+}
+   .footer {
+    margin: 0;
+    background-color: #555;
+    color: rgb(188, 182, 182);
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 96%;
+}
+
+.footer .row {
+    margin-bottom: 10px;
+    padding: 11px 0px 0px 25px;
+}
+
+.footer .bottom-line {
+    border-top: 1px solid #444;
+    color: #888;
+    text-align: center;
+    /* Darker color for bottom line */
+    padding-top: 10px;
+    /* Add some space above the bottom line */
+}
+
+.footer .address {
+    margin: 20px 0px 20px 0px;
+    font-size: 1.1rem;
+    padding: 11px 0px 0px 25px;
+    /* Darker color for address */
+}
+
+

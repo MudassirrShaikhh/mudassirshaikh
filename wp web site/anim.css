@@ -1,0 +1,29 @@
+
+.banner {
+    position: relative;
+    animation: animate-banner 2s ease-in forwards;
+    height: 50vh;
+    width: 100%;
+    background: url(imgs/pixelcut-export.jpeg) no-repeat center/cover;
+    ;
+    /* background:  no-repeat center/cover; */
+}
+
+@keyframes animate-banner {
+    0% {
+      left: -99vw;
+    }
+    100% {
+      left: 0vw;
+    }
+  }
+  
+  @keyframes  loding_line {
+  
+    80%{
+      width: 80vw;
+    }
+    100%{
+      width: 100vw;
+    }
+  };

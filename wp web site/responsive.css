@@ -1,0 +1,55 @@
+@media screen and (max-width:589px) {
+
+    .overlay {
+        font-size: 3rem;
+        display: flex;
+        text-align: center;
+        top: 110px;
+
+    }
+
+    .title {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:1000px) {
+
+    .slide {
+        width: 200px;
+        height: 200px;
+    }
+
+    .slider {
+        height: auto;
+    }
+
+    .slider2 {
+        height: auto;
+
+    }
+
+    .size {
+        font-size: 21px;
+        text-align: center;
+    }
+}
+/* @media screen and (max-width:1000px) {
+    .slide {
+        width: 150px;
+        height: 150px;
+    }
+
+    .slider {
+        height: 30vh;
+    }
+
+    .slider2 {
+        height: 30vh;
+
+    }
+ 
+    .size {
+        font-size: 18px;
+    }
+} */
